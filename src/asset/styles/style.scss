@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pri-color: #454952;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+button {
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  margin-top: 5px;
+  padding: 4px 6px;
+  border: 1px solid #e7e8e8;
+  outline: none;
+  color: var(--pri-color);
+}
+
+label {
+  color: #6b6f6f;
+  font-size: 13px;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+svg {
+  font-size: 15px;
+  color: var(--pri-color);
+}
+
+.app {
+  position: relative;
+
+  .header {
+    width: 100%;
+    height: 40px;
+    box-shadow: 2px 2px 2px rgb(228, 228, 228);
+  }
+
+  .sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #313d4c;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  .tasks {
+    width: 350px;
+    margin: 20px 0 20px 250px;
+    .task-head {
+      border: 1px solid #e5e8e7;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f7faf9;
+      h5 {
+        padding: 10px;
+        span {
+          margin-left: 2px;
+          color: #afb6bc;
+          font-size: 15px;
+        }
+      }
+      div {
+        padding: 7px;
+        border-left: 1px solid #e5e8e7;
+      }
+    }
+    .task-info {
+      background-color: #ecf6fb;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .description {
+        position: relative;
+        svg {
+          border: 2px solid #656565;
+          position: absolute;
+          top: 27px;
+          right: 8px;
+          background-color: white;
+        }
+      }
+      .date-time {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 10px;
+
+        > div {
+          width: 100%;
+        }
+      }
+      .save {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+        .btn {
+          button {
+            padding: 7px 15px;
+            outline: none;
+            border: none;
+            margin-left: 10px;
+            background-color: transparent;
+          }
+          button:nth-child(2) {
+            color: white;
+            background-color: #45ba7f;
+            border-radius: 4px;
+            &:hover {
+              background-color: #317e57;
+            }
+          }
+        }
+      }
+    }
+    .task-info.unview {
+      display: none;
+    }
+    .single-task {
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      > .task {
+        border: 1px solid #e6e6e6;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > .info {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+          > div {
+            h6 {
+              font-size: 16px;
+              color: #444444;
+            }
+            p {
+              font-size: 14px;
+              font-weight: 600;
+            }
+            span {
+              color: #ab6361;
+              font-size: 12px;
+            }
+          }
+        }
+        .icons {
+          gap: 5px;
+          > div {
+            border: 1px solid #dddddd;
+            padding: 4px;
+            font-size: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+
+          > div:nth-child(2) {
+            gap: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  h5 {
+    font-size: 18px;
+  }
+
+  .header {
+    height: 30px;
+  }
+
+  .app {
+    .sidebar {
+      width: 40px;
+    }
+    .tasks {
+      width: 250px;
+      margin: 20px 0 0 50px;
+      .task-info {
+        .date-time {
+          flex-wrap: wrap;
+        }
+      }
+      .single-task {
+        > .task {
+          > .info {
+            > div {
+              h6 {
+                font-size: 14px;
+              }
+              p {
+                font-size: 10px;
+              }
+              span {
+                font-size: 10px;
+              }
+            }
+          }
+          .icons {
+            > div {
+              padding: 1px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
